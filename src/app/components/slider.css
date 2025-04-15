@@ -1,0 +1,6 @@
+.swiper-slide {
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.4s ease;
+  }
+  

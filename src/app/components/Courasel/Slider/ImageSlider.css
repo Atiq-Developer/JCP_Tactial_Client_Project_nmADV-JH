@@ -1,0 +1,19 @@
+/* Custom styles for slick carousel */
+
+/* Arrows */
+.slick-prev:before,
+.slick-next:before {
+  color: black !important;
+  /* Change arrow color to black */
+}
+
+/* Dots */
+.slick-dots li button:before {
+  color: black !important;
+  /* Change dots color to black */
+}
+
+.slick-dots li.slick-active button:before {
+  color: black !important;
+  /* Ensure active dot is also black */
+}
