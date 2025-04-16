@@ -3,12 +3,6 @@ import { products } from "@/app/components/productData";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
-
 // ✅ This enables static generation for all slugs (good for Vercel)
 export async function generateStaticParams() {
   return products.map((product) => ({
@@ -16,7 +10,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProductDetailPage({ params }: PageProps) {
+export default function ProductDetailPage({ params }: { params: { slug: string } }) {
   const product = products.find((item) => item.id === params.slug);
 
   if (!product) return notFound();
