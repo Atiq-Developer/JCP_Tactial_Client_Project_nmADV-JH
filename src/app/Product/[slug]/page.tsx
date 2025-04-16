@@ -1,15 +1,18 @@
+// ✅ app/Product/[slug]/page.tsx
 import { products } from "@/app/components/productData";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
-// ✅ Correctly typed props for Next.js App Router
-type Props = {
+// This tells Next.js that this route is dynamic at runtime
+export const dynamic = "force-dynamic";
+
+interface PageProps {
   params: {
     slug: string;
   };
-};
+}
 
-export default function ProductDetailPage({ params }: Props) {
+export default function ProductDetailPage({ params }: PageProps) {
   const product = products.find((item) => item.id === params.slug);
 
   if (!product) return notFound();
@@ -46,7 +49,6 @@ export default function ProductDetailPage({ params }: Props) {
             </p>
           </div>
 
-          {/* BUTTON */}
           <div className="mt-4">
             <button
               disabled={product.soldOut}
