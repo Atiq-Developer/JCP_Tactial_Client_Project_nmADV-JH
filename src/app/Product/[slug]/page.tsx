@@ -1,15 +1,19 @@
-// ✅ app/Product/[slug]/page.tsx
+// app/product/[slug]/page.tsx
 import { products } from "@/app/components/productData";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-
-// This tells Next.js that this route is dynamic at runtime
-export const dynamic = "force-dynamic";
 
 interface PageProps {
   params: {
     slug: string;
   };
+}
+
+// ✅ This enables static generation for all slugs (good for Vercel)
+export async function generateStaticParams() {
+  return products.map((product) => ({
+    slug: product.id,
+  }));
 }
 
 export default function ProductDetailPage({ params }: PageProps) {
