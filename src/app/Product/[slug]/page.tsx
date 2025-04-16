@@ -2,11 +2,14 @@ import { products } from "@/app/components/productData";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
-interface Props {
-  params: { slug: string };
+// This matches the dynamic route structure Next.js expects
+interface PageProps {
+  params: {
+    slug: string;
+  };
 }
 
-export default function ProductDetailPage({ params }: Props) {
+export default function ProductDetailPage({ params }: PageProps) {
   const product = products.find((item) => item.id === params.slug);
 
   if (!product) return notFound();
