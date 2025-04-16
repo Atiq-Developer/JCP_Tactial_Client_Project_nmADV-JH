@@ -1,47 +1,98 @@
-'use client';
+"use client";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import Image from 'next/image';
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
-const images = [
-  { src: "/Images/1.jpg", alt: "Main Product" },
-  { src: "/Images/3.jpg", alt: "Image 1" },
-  { src: "/Images/4.jpg", alt: "Dell 65W Charger" },
-  { src: "/Images/5.jpg", alt: "Dell Charger" },
-  { src: "/Images/6.jpg", alt: "Accessories" },
+const categories = [
+  {
+    id: 1,
+    title: "LOT OF (50) - Backbone USB-C Gen 1 - Video Game Mobile Controller",
+    products: "362 Products",
+    image: "/Images/11.jpg",
+  },
+  {
+    id: 2,
+    title: "Dell KM5221W Wireless Combo Keyboard & Mouse - Black",
+    products: "157 Products",
+    image: "/Images/2.jpg",
+  },
+  {
+    id: 3,
+    title: "LOT OF (30) - Dell DA20 USB Type-C to HDMI/USB Type-A Adapter",
+    products: "154 Products",
+    image: "/Images/13.jpg",
+  },
+  {
+    id: 4,
+    title: "LOT OF (30) - Dell Laptop Charger 100W USB-C",
+    products: "114 Products",
+    image: "/Images/3.jpg",
+  },
+  {
+    id: 5,
+    title: "LOT OF (17) - Dell Laptop Charger 130W USB-C",
+    products: "14 Products",
+    image: "/Images/9.jpg",
+  },
+  {
+    id: 6,
+    title: "HP 970 Programmable Wireless Keyboard",
+    products: "20 Products",
+    image: "/Images/14.png",
+  },
 ];
 
-export default function ImageSlider() {
+export default function TopCategories() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const visibleCards = 3;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex + 1 >= categories.length - visibleCards + 1 ? 0 : prevIndex + 1
+      );
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="w-full max-w-[1200px] mx-auto mt-10 px-4">
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={30}
-        slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
-        loop={true}
-        className="rounded-xl shadow-lg"
-      >
-        {images.map((image, index) => (
-          <SwiperSlide key={index}>
-            <div className="relative w-full h-0 pb-[40%] bg-white rounded-xl overflow-hidden flex items-center justify-center">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                className="object-contain"
-                unoptimized
-              />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
+    <section className="bg-gray-50 px-4 md:px-16 py-16">
+      <div className="max-w-screen-lg mx-auto">
+        <h2 className="text-2xl text-center font-bold text-gray-800 mb-6">
+          Top Selling Products
+        </h2>
+
+        {/* Slider viewport */}
+        <div className="overflow-hidden w-full">
+          <motion.div
+            className="flex gap-6"
+            animate={{ x: `-${(100 / visibleCards) * currentIndex}%` }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            style={{ width: `${(100 / visibleCards) * categories.length}%` }}
+          >
+            {categories.map((category) => (
+              <div
+                key={category.id}
+                className="w-[calc(100%/3)] flex-shrink-0 relative group overflow-hidden rounded-lg shadow-md"
+              >
+                <Image
+                  src={category.image}
+                  alt={category.title}
+                  width={500}
+                  height={60}
+                  className="w-full h-64 object-cover"
+                />
+
+                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white py-2 px-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-sm font-semibold">{category.title}</h3>
+                  <p className="text-xs">{category.products}</p>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </section>
   );
 }

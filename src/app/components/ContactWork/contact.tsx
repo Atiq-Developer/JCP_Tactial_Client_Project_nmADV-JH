@@ -1,7 +1,5 @@
 import React from "react";
 import { FaMapMarkerAlt, FaPhoneAlt, FaClock } from "react-icons/fa";
-import Image from "next/image";
-
 export default function Contact() {
   return (
     <div className="flex flex-col items-center p-4 md:p-8">
@@ -89,31 +87,6 @@ export default function Contact() {
             </button>
           </form>
         </div>
-      </div>
-
-      {/* Responsive Images Section */}
-      <div className="w-full flex flex-wrap items-center mt-16 justify-evenly bg-slate-300 mx-4 md:mx-8 py-10">
-        <Image
-          src="/first.png"
-          alt="Service 1"
-          width={1000}
-          height={1000}
-          className="max-w-[200px] w-full h-auto mb-4 md:mb-0"
-        />
-        <Image
-          src="/second.png"
-          alt="Service 2"
-          width={1000}
-          height={1000}
-          className="max-w-[200px] w-full h-auto mb-4 md:mb-0"
-        />
-        <Image
-          src="/third.png"
-          alt="Service 3"
-          width={1000}
-          height={1000}
-          className="max-w-[200px] w-full h-auto"
-        />
       </div>
     </div>
   );

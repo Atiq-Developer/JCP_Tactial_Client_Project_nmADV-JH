@@ -96,34 +96,19 @@ export default function Navbar() {
             Home
           </Link>
           <Link
-            href="/Card"
-            className="block px-4 py-2 text-gray-800 hover:underline"
-            onClick={() => setMenuOpen(false)} // Close menu after click
-          >
-            Shop
-          </Link>
-          <Link
-            href="/Product"
-            className="block px-4 py-2 text-gray-800 hover:underline"
-            onClick={() => setMenuOpen(false)} // Close menu after click
-          >
-            Product
-          </Link>
-          <Link
-            href="/ProductPage"
-            className="block px-4 py-2 text-gray-800 hover:underline"
-            onClick={() => setMenuOpen(false)} // Close menu after click
-          >
-            Pages
-          </Link>
-          <Link
             href="/About"
             className="block px-4 py-2 text-gray-800 hover:underline"
             onClick={() => setMenuOpen(false)} // Close menu after click
           >
             About
           </Link>
-
+          <Link
+            href="/Product"
+            className="block px-4 py-2 text-gray-800 hover:underline"
+            onClick={() => setMenuOpen(false)} // Close menu after click
+          >
+            Shop
+          </Link>
           {/* Contact Number for Small Devices */}
           <div className="block md:hidden px-4 py-2 text-gray-800">
             Contact: (808)-5550111

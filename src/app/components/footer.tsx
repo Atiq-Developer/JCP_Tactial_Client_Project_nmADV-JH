@@ -12,9 +12,11 @@ import "remixicon/fonts/remixicon.css";
 export default function Footer() {
   return (
     <div>
-      <div className="w-full xs:h-[1100px] md:h-[440px] bg-white text-[#272343] px-16 pt-10 flex flex-col justify-between xs:mt-[400px] md:mt-0">
-        <div className="w-full md:h-[240px] flex md:gap-[20px] font-[Poppins] xs:flex-col md:flex-row">
-          <div className="md:w-[20%] px-4 flex flex-col gap-4 py-3">
+      <div className="w-full bg-white text-[#272343] px-4 sm:px-8 md:px-16 pt-10 flex flex-col gap-8">
+        {/* Top Footer */}
+        <div className="flex flex-col md:flex-row gap-10 md:gap-6 font-[Poppins]">
+          {/* Logo + Info */}
+          <div className="w-full md:w-1/3 px-2 flex flex-col gap-4">
             <Link href="/">
               <Image
                 src="/Images/Tactical.png"
@@ -24,84 +26,64 @@ export default function Footer() {
                 className="cursor-pointer"
               />
             </Link>
-            <p className="font-[Poppins] pt-8 text-[20px] w-[320px] font-light opacity-80">
-            Located in beautiful Loveland CO. We have been in business since 2012 and are still going strong! We are open from 9AM to 4PM MST.
+            <p className="text-base text-gray-700 max-w-[320px]">
+              Located in beautiful Loveland CO. We have been in business since
+              2012 and are still going strong! We are open from 9AM to 4PM MST.
             </p>
-            <span className="flex space-x-5 text-2xl font-bold pt-6">
-              <FaFacebook className="w-[38px] h-[38px] text-blue-500 rounded-full hover:bg-white hover:text-black" />
-              <FaTwitter className="w-[38px] h-[38px] text-blue-500 rounded-full hover:bg-white hover:text-black" />
-              <FaInstagram className="w-[38px] h-[38px] text-red-500 rounded-full hover:bg-white hover:text-black" />
-              <FaPinterest className="w-[38px] h-[38px] text-gray-600 rounded-full hover:bg-white hover:text-black" />
-              <FaYoutube className="w-[38px] h-[38px] text-red-700 rounded-full hover:bg-white hover:text-black" />
-            </span>
+            <div className="flex gap-4 text-2xl pt-4">
+              <FaFacebook className="text-blue-500 hover:text-black" />
+              <FaTwitter className="text-blue-500 hover:text-black" />
+              <FaInstagram className="text-pink-500 hover:text-black" />
+              <FaPinterest className="text-gray-600 hover:text-black" />
+              <FaYoutube className="text-red-700 hover:text-black" />
+            </div>
           </div>
 
-          {/* Categories Section */}
-          <div className="md:ml-auto md:w-[20%] py-3 px-4">
-            <h2 className="font-[Poppins] text-[20px] font-light opacity-60 pb-6">
-              CATEGORY
-            </h2>
-            {[
-              "HP Products",
-              "Video Game Accessories",
-              "Wholesale Lots",
-              "Dell Products",
-              "KeyBoards & Mouse",
-              "Apple Products",
-            ].map((item) => (
-              <p
-                key={item}
-                className="text-[18px] font-normal text-[#272343] hover:text-[#3eb8a4] hover:underline duration-200"
-              >
-                {item}
-              </p>
-            ))}
+          {/* Support Links */}
+          <div className="w-full md:w-1/4 px-2">
+            <h2 className="text-lg font-semibold text-gray-600 mb-4">SUPPORT</h2>
+            <ul className="space-y-2">
+              {[
+                "Help & Support",
+                "Terms & Conditions",
+                "Privacy Policy",
+                "Help",
+              ].map((item) => (
+                <li key={item} className="text-base text-gray-800 hover:underline cursor-pointer">
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Support Section */}
-          <div className="md:w-[20%] py-3 px-4 ">
-            <h2 className="font-[Poppins] text-[20px] font-light opacity-60 pb-6">
-              SUPPORT
-            </h2>
-            {[
-              "Help & Support",
-              "Terms & Conditions",
-              "Privacy Policy",
-              "Help",
-            ].map((item) => (
-              <p key={item} className="text-[18px] font-normal">
-                {item}
-              </p>
-            ))}
-          </div>
-
-          {/* Newsletter Section */}
-          <div className="md:w-[25%] py-3 px-4 space-y-3">
-            <h2 className="font-[Poppins] text-[20px] font-light opacity-60 pb-6">
-              NEWSLETTER
-            </h2>
-            <div className="flex items-center space-x-2">
+          {/* Newsletter */}
+          <div className="w-full md:w-2/5 px-2 space-y-4">
+            <h2 className="text-lg font-semibold text-gray-600">NEWSLETTER</h2>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
               <input
                 type="text"
                 placeholder="Your email"
-                className="w-[70%] px-4 py-2 bg-black border border-white rounded-md text-white placeholder-gray-400"
+                className="w-full sm:w-[70%] px-4 py-2 bg-black border border-white rounded-md text-white placeholder-gray-400"
               />
-              <button className="px-4 py-2 bg-[#3eb8a4] text-white rounded-md hover:bg-[#34a38b]">
+              <button className="w-full sm:w-auto px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
                 Subscribe
               </button>
             </div>
-            <p className="text-[16px] font-light text-gray-900 opacity-60 mt-2">
+            <p className="text-sm text-gray-600">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
               tincidunt erat enim.
             </p>
           </div>
         </div>
+
+        {/* Divider */}
+        <hr className="border-t border-gray-300" />
+
+        {/* Bottom Footer */}
+        <p className="text-center text-sm sm:text-base text-gray-700 py-4 font-semibold">
+          © Copyright 2025. Designed & Developed by Atiq_Developer | TechCraft.inc
+        </p>
       </div>
-      <hr className="border-gray-500" />
-      {/* Footer Bottom */}
-      <p className=" bg-white  w-full text-black flex px-4 md:px-16 pb-3 pt-0 items-center justify-center text-[18px] font-[Poppins] font-bold mt-4">
-        &#169; Copyright 2025.Designed & Developed by Atiq_Developer TechCraft.inc
-      </p>
     </div>
   );
 }

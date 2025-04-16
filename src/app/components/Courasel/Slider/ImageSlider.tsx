@@ -36,7 +36,7 @@ export default function ImageSlider() {
   ];
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
@@ -66,20 +66,20 @@ export default function ImageSlider() {
   };
 
   return isClient ? (
-    <section className="bg-gray-50 px-4 md:px-16 py-16">
-      <div className="max-w-screen-lg mx-auto">
+    <section className="bg-gray-50 px-4 sm:px-8 md:px-16 py-12 sm:py-16">
+      <div className="max-w-screen-xl mx-auto w-full">
         <Slider {...settings}>
           {imageData.map((image, index) => (
             <div
               key={index}
-              className="flex justify-center items-center h-32 bg-white p-4 rounded-md shadow-sm"
+              className="flex justify-center items-center h-32 sm:h-28 md:h-32 bg-white p-4 rounded-md shadow-sm"
             >
               <Image
                 src={image.src}
                 alt={image.alt}
-                width={120}
-                height={80}
-                className="object-contain h-20 w-auto"
+                width={140}
+                height={90}
+                className="object-contain h-20 w-auto max-w-[120px]"
               />
             </div>
           ))}

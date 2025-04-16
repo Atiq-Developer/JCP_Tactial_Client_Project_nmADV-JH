@@ -29,32 +29,32 @@ export default function About() {
     { src: "/Images/12.jpg", alt: "Main Product" },
     { src: "/Images/12.jpg", alt: "Main Product" },
     { src: "/Images/12.jpg", alt: "Main Product" },
-    { src: "/Images/12.jpg", alt: "Main Product"},
-    { src: "/Images/12.jpg", alt: "Main Product"},
-
+    { src: "/Images/12.jpg", alt: "Main Product" },
+    { src: "/Images/12.jpg", alt: "Main Product" },
   ];
 
   return (
     <section className="text-gray-600 body-font py-12">
-      <div className="container px-5 md:px-28 mx-auto flex flex-wrap md:flex-nowrap justify-center md:justify-between">
-        {/* Content Section */}
-        <div className="w-full md:w-1/2 px-4 md:px-8 mb-6 md:mb-0 bg-red-600 p-8 rounded-lg shadow-lg text-white flex flex-col justify-between items-center md:items-start">
-          <h1 className="title-font font-medium text-2xl md:text-3xl mb-4 text-white text-center md:text-left">
+      {/* About Section */}
+      <div className="container px-4 sm:px-6 md:px-12 lg:px-20 mx-auto flex flex-col md:flex-row justify-center md:justify-between items-center">
+        {/* Content */}
+        <div className="w-full md:w-1/2 mb-10 md:mb-0 bg-red-600 text-white p-6 sm:p-8 rounded-lg shadow-lg flex flex-col items-center md:items-start">
+          <h1 className="text-2xl sm:text-3xl font-bold mb-4 text-center md:text-left">
             About Us - JCPTactical
           </h1>
-          <p className="leading-relaxed mb-6 text-center md:text-left">
+          <p className="text-base sm:text-lg leading-relaxed mb-6 text-center md:text-left">
             JCPTactical is your trusted source for high-quality computer accessories, designed to support both everyday users and tech professionals. Whether you&apos;re upgrading your workspace or replacing a crucial part, we offer reliable gear that performs.
           </p>
-          <button className="px-6 py-2 bg-teal-800 text-white font-semibold rounded hover:bg-teal-900 transition duration-300">
+          <button className="px-6 py-2 bg-teal-800 hover:bg-teal-900 transition duration-300 text-white font-semibold rounded">
             View Product
           </button>
         </div>
 
-        {/* Hero Style Fanned Image Stack */}
-        <div className="w-full md:w-1/2 px-4 md:px-8 rounded-lg overflow-hidden mt-6 md:mt-0 relative h-[400px] flex items-center justify-center">
+        {/* Fanned Image Stack */}
+        <div className="w-full md:w-1/2 mt-8 md:mt-0 relative h-[320px] sm:h-[360px] md:h-[400px] flex items-center justify-center">
           {featureImages.map((img, index) => {
             const angle = -15 + index * 7;
-            const offsetX = index * 25 - 50;
+            const offsetX = index * 20 - 40;
             const offsetY = Math.abs(index - 2) * 10;
 
             return (
@@ -68,9 +68,10 @@ export default function About() {
               >
                 <Image
                   src={img.src}
-                  alt={img.alt}
-                  width={260}
-                  height={180}
+                  alt={img.alt || "Product Image"}
+                  width={240}
+                  height={160}
+                  loading="lazy"
                   className="rounded-xl shadow-xl object-cover border border-white"
                 />
               </div>
@@ -79,23 +80,24 @@ export default function About() {
         </div>
       </div>
 
-      {/* Brand Difference Section */}
-      <h1 className="text-center text-2xl md:text-3xl font-bold mb-6 mt-20">
+      {/* Brand Feature Section */}
+      <h1 className="text-center text-2xl sm:text-3xl font-bold mb-8 mt-20">
         What Makes Our Brand Different
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 md:px-48 py-8">
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-8 md:px-16 lg:px-32">
         {brandFeatures.map((item, index) => (
           <div
             key={index}
-            className="bg-slate-200 p-6 md:p-8 rounded-lg shadow-md text-teal-600 flex flex-col justify-between"
+            className="bg-slate-200 p-6 sm:p-8 rounded-lg shadow-md text-teal-600 flex flex-col"
           >
-            <span className="block mb-4 text-lg font-semibold">
-              {item.emoji}
-            </span>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+            <span className="block text-3xl mb-4">{item.emoji}</span>
+            <h2 className="text-xl sm:text-2xl font-bold mb-2">
               {item.title}
             </h2>
-            <p className="text-teal-600 text-base md:text-lg">{item.text}</p>
+            <p className="text-red-600 text-base sm:text-lg">
+              {item.text}
+            </p>
           </div>
         ))}
       </div>
