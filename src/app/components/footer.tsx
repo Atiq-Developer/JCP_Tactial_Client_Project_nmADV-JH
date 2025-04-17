@@ -28,7 +28,7 @@ export default function Footer() {
             </Link>
             <p className="text-base text-gray-700 max-w-[320px]">
               Located in beautiful Loveland CO. We have been in business since
-              2012 and are still going strong! We are open from 9AM to 4PM MST.
+              2012 and are still going strong! We are open from 9AM to 5PM MST.
             </p>
             <div className="flex gap-4 text-2xl pt-4">
               <FaFacebook className="text-blue-500 hover:text-black" />
@@ -43,17 +43,29 @@ export default function Footer() {
           <div className="w-full md:w-1/4 px-2">
             <h2 className="text-lg font-semibold text-gray-600 mb-4">SUPPORT</h2>
             <ul className="space-y-2">
-              {[
-                "Help & Support",
-                "Terms & Conditions",
-                "Privacy Policy",
-                "Help",
-              ].map((item) => (
-                <li key={item} className="text-base text-gray-800 hover:underline cursor-pointer">
-                  {item}
-                </li>
-              ))}
-            </ul>
+  <li>
+    <Link href="/help-support" className="text-base text-gray-800 hover:underline">
+      Help & Support
+    </Link>
+  </li>
+  <li>
+    <Link href="/terms-policy" className="text-base text-gray-800 hover:underline">
+      Terms & Conditions
+    </Link>
+  </li>
+  <li>
+    <Link href="/privacy-policy" className="text-base text-gray-800 hover:underline">
+      Privacy Policy
+    </Link>
+  </li>
+  <li>
+    <Link href="/RefundPolicy" className="text-base text-gray-800 hover:underline">
+      Refund Policy
+    </Link>
+  </li>
+</ul>
+
+
           </div>
 
           {/* Newsletter */}
@@ -70,9 +82,13 @@ export default function Footer() {
               </button>
             </div>
             <p className="text-sm text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-              tincidunt erat enim.
+            We&apos;re here to help — whether you have a question, need support, or just want to say hello, the JCP Tactical team is ready to assist you
             </p>
+            <Link href="/Contact">
+  <button className="w-full sm:w-auto mt-2 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
+    Contact Us
+  </button>
+</Link>
           </div>
         </div>
 

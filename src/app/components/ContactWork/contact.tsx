@@ -7,10 +7,9 @@ export default function Contact() {
         GET In Touch with Us
       </h1>
       <p className="text-center mb-8 text-gray-600">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab cupiditate
-        volupta
+      At JCP Tactical, we’re here to help with any questions, concerns, or custom requests
         <br />
-        rem debitis autem libero quisquam.
+        just reach out and we’ll get back to you promptly.
       </p>
 
       <div className="w-full md:w-3/4 lg:w-2/3 flex flex-col md:flex-row p-6 rounded-lg">
@@ -29,8 +28,7 @@ export default function Contact() {
               <FaPhoneAlt className="text-green-500 mr-3 mt-1" size={20} />
               <div>
                 <strong>Phone Number:</strong>
-                <p>+1 (234) 567-8901</p>
-                <p>+1 (234) 567-8901</p>
+                <p>+1 (505) 350-0696</p>
               </div>
             </div>
             <div className="flex items-start">
@@ -81,7 +79,7 @@ export default function Contact() {
             </div>
             <button
               type="submit"
-              className="bg-emerald-500 px-8 py-2 mt-6 text-xl text-white rounded-md hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="bg-red-500 px-8 py-2 mt-6 text-xl text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
             >
               Submit
             </button>

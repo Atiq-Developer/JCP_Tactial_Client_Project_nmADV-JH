@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function About() {
@@ -45,9 +46,11 @@ export default function About() {
           <p className="text-base sm:text-lg leading-relaxed mb-6 text-center md:text-left">
             JCPTactical is your trusted source for high-quality computer accessories, designed to support both everyday users and tech professionals. Whether you&apos;re upgrading your workspace or replacing a crucial part, we offer reliable gear that performs.
           </p>
-          <button className="px-6 py-2 bg-teal-800 hover:bg-teal-900 transition duration-300 text-white font-semibold rounded">
+          <Link href="\Product"> 
+          <button className="px-6 py-2 bg-gray-800 hover:bg-black transition duration-300 text-white font-semibold rounded">
             View Product
           </button>
+          </Link>
         </div>
 
         {/* Fanned Image Stack */}
